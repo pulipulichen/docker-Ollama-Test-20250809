@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  ollama:
+    build: .
+    volumes:
+      - ollama:/root/.ollama
+      - ./entrypoint.sh:/entrypoint.sh
+    ports:
+      - "${EXPOSE_PORT}:11434"
+    restart: on-failure
+    environment:
+      - TZ=${TIMEZONE}
+    entrypoint: ["/usr/bin/bash", "/entrypoint.sh"]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+              device_ids: ['${GPU_ID}']
+
+volumes:
+  ollama:
