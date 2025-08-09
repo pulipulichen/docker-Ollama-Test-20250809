@@ -11,6 +11,9 @@ sleep 5
 echo "pull gemma3:1b"
 ollama pull gemma3:1b
 
+echo "pull gemma3:4b"
+ollama pull gemma3:4b
+
 # # =====================
 # # 底下是測試用
 
