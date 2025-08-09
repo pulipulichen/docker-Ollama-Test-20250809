@@ -17,7 +17,6 @@ services:
         reservations:
           devices:
             - capabilities: [gpu]
-              device_ids: ['${GPU_ID}']
 
 volumes:
   ollama:
